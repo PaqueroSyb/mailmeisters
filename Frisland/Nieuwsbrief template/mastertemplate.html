@@ -7,7 +7,7 @@
     <meta name="supported-color-schemes" content="light">
     [literal]
     <!--[if !mso]><!-->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--<![endif]-->
     <title>Frisland</title>
@@ -33,6 +33,7 @@
       src: local('Muli-Regular'), url(Frisland/Satisfy.woff) format('woff');
       }
       }
+      @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
       body {
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: none;
@@ -536,6 +537,8 @@
     </table>
     [/loop]  
     [loop name="3Products" min=0]
+    {capture assign="PaddingTopPx"}[text name="PaddingTop" editor="poor"]{/capture}
+    {capture assign="PaddingBottomPx"}[text name="PaddingBottom" editor="poor"]{/capture}
     {capture assign="ShowButtonYesNo"}[text name="ShowButtons" editor="poor"]{/capture}
     {capture assign="ShowSizeYesNo"}[text name="ShowPackageSize" editor="poor"]{/capture}
     {capture assign="ShowRatingYesNo"}[text name="ShowRating" editor="poor"]{/capture}
@@ -544,12 +547,17 @@
       <tr>
         <td align="center" >
           <table align="center" cellpadding="0" class="resize" cellspacing="0" border="0" style="width:680px;" bgcolor="#ffffff">
+            {if $PaddingTopPx != ''}
+            <tr>
+              <td height="{$PaddingTopPx}" style="line-height: {$PaddingTopPx}px;">&nbsp;</td>
+             </tr>
+            {/if}
             {if $ttle != ''}
             <tr>
               <td align="center">
                 <table cellpadding="0" cellspacing="0" align="center">
                   <tr>
-                    <td><font style="color:#000000;font-size: 28px; font-family: Satisfy, Arial, sans-serif; line-height:30px;">{$ttle}</font></td>
+                    <td><font style="color:#000000;font-size: 32px; font-family: Satisfy, Arial, sans-serif; line-height:36px;">{$ttle}</font></td>
                   </tr>
                   <tr>
                     <td height="10" style="line-height: 10px;border-bottom:6px solid #36bac6">&nbsp;</td>
@@ -577,7 +585,7 @@
                                 <td height="15" style="line-height: 15px">&nbsp;</td>
                               </tr>
                               <tr>
-                                <td align="center"><a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Satisfy, Arial, sans-serif; line-height:20px;display:block;"><strong>[text name="ProductTitle1" editor="poor"]</strong></font></a></td>
+                                <td align="center"><a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Arial, sans-serif; line-height:20px;display:block;"><strong>[text name="ProductTitle1" editor="poor"]</strong></font></a></td>
                               </tr>
                               {if $ShowSizeYesNo == ''}
                               <tr>
@@ -653,7 +661,7 @@
                                 <td height="15" style="line-height: 15px">&nbsp;</td>
                               </tr>
                               <tr>
-                                <td align="center"><a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Satisfy, Arial, sans-serif; line-height:20px;display:block;"><strong>[text name="ProductTitle2" editor="poor"]</strong></font></a></td>
+                                <td align="center"><a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Arial, sans-serif; line-height:20px;display:block;"><strong>[text name="ProductTitle2" editor="poor"]</strong></font></a></td>
                               </tr>
                               {if $ShowSizeYesNo == ''}
                               <tr>
@@ -708,7 +716,7 @@
                                 <td align="center" class="paddingboth">
                                   <table cellpadding="0" cellspacing="0" style="border-collapse:separate !important;width:100%" class="resize" height="24" align="center">
                                     <tr>
-                                      <td align="center" valign="middle" height="40"  style="border-radius:23px; -webkit-border-radius:23px; background-color: #36bac6"><a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="display: block;text-decoration: none"><font style="color:#ffffff;font-size: 13px; font-family: 'Open Sans', Arial, sans-serif; line-height:38px; text-transform: uppercase; font-weight: bold;">&nbsp;&nbsp;SHOP NU&nbsp;&#10093;&nbsp;&nbsp;</font></a></td>
+                                      <td align="center" valign="middle" height="40"  style="border-radius:23px; -webkit-border-radius:23px; background-color: #36bac6"><a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="display: block;text-decoration: none"><font style="color:#ffffff;font-size: 13px; font-family: 'Open Sans', Arial, sans-serif; line-height:38px; text-transform: uppercase; font-weight: bold;">&nbsp;&nbsp;SHOP NU&nbsp;&#10093;&nbsp;&nbsp;</font></a></td>
                                     </tr>
                                   </table>
                                 </td>
@@ -732,7 +740,7 @@
                           <td height="15" style="line-height: 15px">&nbsp;</td>
                         </tr>
                         <tr>
-                          <td align="center"><a href="{$prdcturl3}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Satisfy, Arial, sans-serif; line-height:20px;display:block;"><strong>[text name="ProductTitle3" editor="poor"]</strong></font></a></td>
+                          <td align="center"><a href="{$prdcturl3}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Arial, sans-serif; line-height:20px;display:block;"><strong>[text name="ProductTitle3" editor="poor"]</strong></font></a></td>
                         </tr>
                         {if $ShowSizeYesNo == ''}
                         <tr>
@@ -787,7 +795,7 @@
                           <td align="center" class="paddingboth">
                             <table cellpadding="0" cellspacing="0" style="border-collapse:separate !important;width:100%" class="resize" height="24" align="center">
                               <tr>
-                                <td align="center" valign="middle" height="40"  style="border-radius:23px; -webkit-border-radius:23px; background-color: #36bac6"><a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="display: block;text-decoration: none"><font style="color:#ffffff;font-size: 13px; font-family: 'Open Sans', Arial, sans-serif; line-height:38px; text-transform: uppercase; font-weight: bold;">&nbsp;&nbsp;SHOP NU&nbsp;&#10093;&nbsp;&nbsp;</font></a></td>
+                                <td align="center" valign="middle" height="40"  style="border-radius:23px; -webkit-border-radius:23px; background-color: #36bac6"><a href="{$prdcturl3}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="display: block;text-decoration: none"><font style="color:#ffffff;font-size: 13px; font-family: 'Open Sans', Arial, sans-serif; line-height:38px; text-transform: uppercase; font-weight: bold;">&nbsp;&nbsp;SHOP NU&nbsp;&#10093;&nbsp;&nbsp;</font></a></td>
                               </tr>
                             </table>
                           </td>
@@ -805,6 +813,11 @@
                 </table>
               </td>
             </tr>
+            {if $PaddingBottomPx != ''}
+            <tr>
+              <td height="{$PaddingBottomPx}" style="line-height: {$PaddingBottomPx}px;">&nbsp;</td>
+            </tr>
+            {/if}
           </table>
         </td>
       </tr>
@@ -1009,7 +1022,7 @@
               <td align="center">
                 <table cellpadding="0" cellspacing="0" align="center">
                   <tr>
-                    <td align="center"><font style="color:#000000;font-size: 28px; font-family: Satisfy, Arial, sans-serif; line-height:30px;">{$ttle}</font></td>
+                    <td align="center"><font style="color:#000000;font-size: 32px; font-family: Satisfy, Arial, sans-serif; line-height:36px;">{$ttle}</font></td>
                   </tr>
                   <tr>
                     <td height="10" style="line-height: 10px;border-bottom:6px solid #36bac6">&nbsp;</td>
@@ -1034,7 +1047,7 @@
                           <td height="15" style="line-height: 15px">&nbsp;</td>
                         </tr>
                         <tr>
-                          <td align="center"><a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Satisfy, Arial, sans-serif; line-height:20px;display:block;"><strong>[text name="ProductTitle1" editor="poor"]</strong></font></a></td>
+                          <td align="center"><a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Arial, sans-serif; line-height:28px;display:block;"><strong>[text name="ProductTitle1" editor="poor"]</strong></font></a></td>
                         </tr>
                         <tr>
                           <td height="10" style="line-height: 10px">&nbsp;</td>
@@ -1047,15 +1060,15 @@
                         </tr>
                         <tr>
                           <td align="center" style="line-height: 16px" height="16">{capture assign="rating1"}[text name="Rating1" editor="poor"]{/capture}
-                            {if $rating1 == '5'}<a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</font></a>
+                            {if $rating1 == '5'}<a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</font></a>
                             {elseif $rating1 == '4'}
-                            <a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9734;</font></a>
+                            <a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9734;</font></a>
                             {elseif $rating1 == '3'}
-                            <a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9734;&#9734;</font></a>
+                            <a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9734;&#9734;</font></a>
                             {elseif $rating1 == '2'}
-                            <a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9734;&#9734;&#9734;</font></a>
+                            <a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9734;&#9734;&#9734;</font></a>
                             {elseif $rating1 == '1'}
-                            <a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9734;&#9734;&#9734;&#9734;</font></a>{elseif $rating1 == ''}<font style="color:#D7D7D7; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block;">[text name="RatingAlternative1" editor="poor"]</font>{/if}    
+                            <a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9734;&#9734;&#9734;&#9734;</font></a>{elseif $rating1 == ''}<font style="color:#D7D7D7; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block;">[text name="RatingAlternative1" editor="poor"]</font>{/if}    
                           </td>
                         </tr>
                         <tr>
@@ -1067,11 +1080,11 @@
                               <tr>
                                 {capture assign="frmprc1"}[text name="FromPrice1" editor="poor"]{/capture}
                                 {if $frmprc1 != ''}
-                                <td style="width:35%" align="right"><a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none;display:block;"><span style="text-decoration: line-through;">&nbsp;<font style="color:#d60000;font-size: 15px; font-family: Satisfy, Arial, sans-serif; line-height:18px;">{$frmprc1},-</font>&nbsp;</span></a></td>
+                                <td style="width:35%" align="right"><a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none;display:block;"><span style="text-decoration: line-through;">&nbsp;<font style="color:#d60000;font-size: 15px; font-family: Arial, sans-serif; line-height:18px;">{$frmprc1}</font>&nbsp;</span></a></td>
                                 <td style="width:10%">&nbsp;</td>
                                 {/if}
                                 <td align="{if $frmprc1 != ''}left{else}center{/if}"><a href="{$prdcturl1}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none;display:block;">&nbsp;{if $frmprc1 != ''}<font style="color:#000000;font-size: 14px; font-family: 'Open Sans', Arial, sans-serif; line-height:38px; font-weight: bold">Nu voor:</font><br />{else}{/if}
-                                  <font style="{if $frmprc1 != ''}color:#000000;{else}color:#000000;{/if}font-size: {if $frmprc1 != ''}38{else}28{/if}px; font-family: Satisfy, Arial, sans-serif; line-height:24px; font-weight: bold">[text name="Price1" editor="poor"]</font>&nbsp;</a>
+                                  <font style="{if $frmprc1 != ''}color:#000000;{else}color:#000000;{/if}font-size: {if $frmprc1 != ''}38{else}28{/if}px; font-family: Satisfy, Arial, sans-serif; line-height:38px; font-weight: bold">[text name="Price1" editor="poor"]</font>&nbsp;</a>
                                 </td>
                               </tr>
                             </table>
@@ -1104,7 +1117,7 @@
                           <td height="15" style="line-height: 15px">&nbsp;</td>
                         </tr>
                         <tr>
-                          <td align="center"><a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Satisfy, Arial, sans-serif; line-height:20px;display:block;"><strong>[text name="ProductTitle2" editor="poor"]</strong></font></a></td>
+                          <td align="center"><a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#000000;font-size: 24px; font-family: Arial, sans-serif; line-height:28px;display:block;"><strong>[text name="ProductTitle2" editor="poor"]</strong></font></a></td>
                         </tr>
                         <tr>
                           <td height="10" style="line-height: 10px">&nbsp;</td>
@@ -1117,15 +1130,15 @@
                         </tr>
                         <tr>
                           <td align="center" style="line-height: 16px" height="16"> {capture assign="rating2"}[text name="Rating2" editor="poor"]{/capture}
-                            {if $rating2 == '5'}<a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</font></a>
+                            {if $rating2 == '5'}<a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;</font></a>
                             {elseif $rating2 == '4'}
-                            <a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9734;</font></a>
+                            <a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9733;&#9734;</font></a>
                             {elseif $rating2 == '3'}
-                            <a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9734;&#9734;</font></a>
+                            <a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9733;&#9734;&#9734;</font></a>
                             {elseif $rating2 == '2'}
-                            <a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9734;&#9734;&#9734;</font></a>
+                            <a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9733;&#9734;&#9734;&#9734;</font></a>
                             {elseif $rating2 == '1'}
-                            <a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#36bac6; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9734;&#9734;&#9734;&#9734;</font></a>{elseif $rating2 == ''}<font style="color:#D7D7D7; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block;">[text name="RatingAlternative2" editor="poor"]</font>{/if}
+                            <a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none"><font style="color:#e94262; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block; text-transform: uppercase; font-weight: bold">&nbsp;&#9733;&#9734;&#9734;&#9734;&#9734;</font></a>{elseif $rating2 == ''}<font style="color:#D7D7D7; font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; line-height:21px;display:block;">[text name="RatingAlternative2" editor="poor"]</font>{/if}
                           </td>
                         </tr>
                         <tr>
@@ -1137,11 +1150,11 @@
                               <tr>
                                 {capture assign="frmprc2"}[text name="FromPrice2" editor="poor"]{/capture}
                                 {if $frmprc2 != ''}
-                                <td style="width:35%" align="right"><a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none;display:block;"><span style="text-decoration: line-through;">&nbsp;<font style="color:#d60000;font-size: 15px; font-family: Satisfy, Arial, sans-serif; line-height:18px;">{$frmprc2},-</font>&nbsp;</span></a></td>
+                                <td style="width:35%" align="right"><a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none;display:block;"><span style="text-decoration: line-through;">&nbsp;<font style="color:#d60000;font-size: 15px; font-family: Arial, sans-serif; line-height:18px;">{$frmprc2}</font>&nbsp;</span></a></td>
                                 <td style="width:10%">&nbsp;</td>
                                 {/if}
                                 <td align="{if $frmprc2 != ''}left{else}center{/if}"><a href="{$prdcturl2}?utm_source=copernica&utm_medium=email&utm_campaign={$document.name}{if $profile.EmailHash != ""}&email={$profile.EmailHash}{else}{/if}" style="text-decoration: none;display:block;">&nbsp;{if $frmprc2 != ''}<font style="color:#000000;font-size: 14px; font-family: 'Open Sans', Arial, sans-serif; line-height:38px; font-weight: bold">Nu voor:</font><br />left{else}{/if}
-                                  <font style="{if $frmprc2 != ''}color:#000000;{else}color:#000000;{/if}font-size: {if $frmprc2 != ''}38{else}28{/if}px; font-family: Satisfy, Arial, sans-serif; line-height:24px; font-weight: bold">[text name="Price2" editor="poor"]</font>&nbsp;</a>
+                                  <font style="{if $frmprc2 != ''}color:#000000;{else}color:#000000;{/if}font-size: {if $frmprc2 != ''}38{else}28{/if}px; font-family: Satisfy, Arial, sans-serif; line-height:38px; font-weight: bold">[text name="Price2" editor="poor"]</font>&nbsp;</a>
                                 </td>
                               </tr>
                             </table>
@@ -1699,7 +1712,7 @@
                                   <tr>
                                     <td style="width:55px" valign="top" class="footericon"><a href="tel:(+31)850511100" style="text-decoration: none"><img src="Frisland/phone_round_white.png" width="55" style="display: block" class="footericon" border="0"  alt=""/></a></td>
                                     <td style="width:22px" class="footerspacing">&nbsp;</td>
-                                    <td valign="middle"><a href="tel:(+31)850511100" style="text-decoration: none"><font style="color:#ffffff;font-size: 21px; font-family: Satisfy, Arial, sans-serif; line-height:31px; display:block" class="footersubtitle">(+31)85 - 051 11 00</font></a><font style="color:#ffffff;font-size: 13px; font-family: 'Open Sans', Arial, sans-serif; line-height:20px;">Van maandag tot en met vrijdag van 09.00 uur tot 17.00 uur</font></td>
+                                    <td valign="middle"><a href="tel:(+31)850511100" style="text-decoration: none"><font style="color:#ffffff;font-size: 21px; font-family: Satisfy, Arial, sans-serif; line-height:31px; display:block" class="footersubtitle">(+31)85 - 051 11 00</font></a><font style="color:#ffffff;font-size: 13px; font-family: 'Open Sans', Arial, sans-serif; line-height:20px;"> Van maandag tot en met vrijdag van 09.00 uur tot 17.00 uur</font></td>
                                   </tr>
                                   <tr>
                                     <td colspan="3" height="50">&nbsp;</td>
@@ -1707,7 +1720,7 @@
                                   <tr>
                                     <td style="width:55px" valign="top" class="footericon"><a href="mailto:info@frisland.nl" style="text-decoration: none"><img src="Frisland/envelope_round_white.png" width="55" style="display: block" class="footericon" border="0"  alt=""/></a></td>
                                     <td style="width:22px" class="footerspacing">&nbsp;</td>
-                                    <td valign="middle"><a href="mailto:klantenservice@frisland.nl" style="text-decoration: none"><font style="color:#ffffff;font-size: 21px; font-family: Satisfy, Arial, sans-serif; line-height:31px; display:block" class="footersubtitle">klantenservice@frisland.nl</font></a><font style="color:#ffffff;font-size: 13px; font-family: 'Open Sans', Arial, sans-serif; line-height:20px;">Wij doen ons best je bericht binnen één werkdag te beantwoorden.</font></td>
+                                    <td valign="middle"><a href="mailto:klantenservice@frisland.nl" style="text-decoration: none"><font style="color:#ffffff;font-size: 21px; font-family: Satisfy, Arial, sans-serif; line-height:31px; display:block" class="footersubtitle">klantenservice@frisland.nl</font></a><font style="color:#ffffff;font-size: 13px; font-family: 'Open Sans', Arial, sans-serif; line-height:20px;"> Wij doen ons best je bericht binnen één werkdag te beantwoorden.</font></td>
                                   </tr>
                                 </table>
                               </td>
